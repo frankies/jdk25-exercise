@@ -64,7 +64,7 @@ jobs:
           ignore-unfixed: true
           format: json
           output: trivy-results.json
-          exit-code: '0'
+          exit-code: '0'  # Always pass, even if vulnerabilities found
         env:
           TRIVY_INCLUDE_DEV_DEPS: 'true'
 
@@ -79,11 +79,12 @@ jobs:
           ignore-unfixed: true
           format: sarif
           output: trivy-results.sarif
-          exit-code: '1'
+          exit-code: '1'  # Fail only if HIGH or CRITICAL vulnerabilities found
           limit-severities-for-sarif: true
           skip-setup-trivy: true
         env:
           TRIVY_INCLUDE_DEV_DEPS: 'true'
+          TRIVY_IGNORE_UNFIXED: 'true'
 
       - name: Upload dependency scan reports
         if: always()

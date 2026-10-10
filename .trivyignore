@@ -1,0 +1,8 @@
+# Trivy Ignore Configuration
+# This file contains vulnerabilities that are known false positives or not impactful
+# for this project.
+
+# Format: CVE-ID
+# Example: CVE-2021-44228
+
+# Add known non-impactful vulnerabilities below if needed
