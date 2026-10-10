@@ -27,12 +27,12 @@
 *.json text
 
 # Shell scripts - preserve execute permission
-*.sh text eol=lf executable
+*.sh text eol=lf
 
-# Gradle wrapper for Unix/Linux/macOS - preserve execute permission
-gradlew text eol=lf executable
+# Gradle wrapper for Unix/Linux/macOS
+gradlew text eol=lf
 
-# Gradle wrapper for Windows - keep as-is (binary mode to preserve DOS line endings)
+# Gradle wrapper for Windows
 gradlew.bat binary
 
 # Git attributes
@@ -43,14 +43,3 @@ gradlew.bat binary
 *.zip binary
 *.class binary
 *.log binary
-
-# Language definitions for GitHub code search
-*.java language:java
-*.gradle language:Groovy
-*.md language:Markdown
-*.xml language:XML
-*.json language:JSON
-*.properties language:Properties
-*.yml language:YAML
-*.yaml language:YAML
-*.sh language:Shell
