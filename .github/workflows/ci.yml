@@ -104,11 +104,15 @@ jobs:
               
               # Create a table of vulnerabilities
               echo "| Severity | Package | CVE | Installed Version | Fixed Version |" >> $GITHUB_STEP_SUMMARY
-              echo "|----------|---------|-----|-------------------|---------------|" >> $GITHUB_STEP_SUMMARY
+              echo "|:----------|:---------|:-----|:-------------------|:---------------|" >> $GITHUB_STEP_SUMMARY
               
-              jq -r '.Results[]?.Vulnerabilities[] | 
-                "[\(.Severity), \(.PkgName), \"\(.ID // "N/A")\", \(.InstalledVersion), \(.FixedVersion // "N/A")]" | @tsv' trivy-results.json 2>/dev/null | \
+              # Process each vulnerability and add to table
+              jq -r '.Results[]?.Vulnerabilities[]? | 
+                [.Severity, .PkgName, (.ID // "N/A"), .InstalledVersion, (.FixedVersion // "N/A")] | @tsv' trivy-results.json 2>/dev/null | \
                 while IFS=$'\t' read -r severity pkg cve installed fixed; do
+                  # Skip empty lines
+                  [ -z "$severity" ] && continue
+                  
                   # Map severity to emoji
                   case "$severity" in
                     CRITICAL) emoji="🔴" ;;
