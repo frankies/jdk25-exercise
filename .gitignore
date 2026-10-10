@@ -1,0 +1,7 @@
+.gradle/
+build/
+*.class
+.idea/
+out/
+.agent/
+*lock.json

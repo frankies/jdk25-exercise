@@ -1,0 +1,48 @@
+plugins {
+    id 'application'
+    id("io.freefair.lombok") version "9.8.0"
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+     languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+application {
+    mainClass = 'com.example.jdk25.App'
+}
+
+dependencies {
+    implementation 'ch.qos.logback:logback-classic:1.5.20'
+    implementation 'org.assertj:assertj-core:3.27.3'
+    testImplementation platform('org.junit:junit-bom:5.13.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.mockito:mockito-core:5.24.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.24.0'
+}
+
+lombok {
+    version = "1.18.48"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    maxHeapSize = '256m'
+    minHeapSize = '64m'
+    forkEvery = 10
+    maxParallelForks = 1
+    jvmArgs '-XX:+UseSerialGC', '-Xss1m', '-XX:+EnableDynamicAgentLoading'
+}
+
+dependencyLocking {
+    lockAllConfigurations()
+}
