@@ -12,9 +12,20 @@
 当前示例分布在两个源文件中：
 
 - `AnonymousClassesToLambdas.java` 使用 `this::save` 将实例方法注册为按钮动作监听器，并展示紧凑源文件形式。
-- `com.example.jdk25.App` 汇集了模式匹配、记录模式、sealed 类型、穷尽 `switch`、字符串 `switch`、集合操作及 Stream API 示例；入口使用实例 `main` 方法。
+- `com.example.jdk25.App` 汇集了模式匹配、记录模式、sealed 类型、穷举 `switch`、字符串 `switch`、集合操作及 Stream API 示例；入口使用实例 `main` 方法。
 
-这些代码用于演示和实验，不构成完整的 UI 或业务实现。测试任务已配置为使用 JUnit Platform。
+这些代码用于演示和实验，不构成完整的 UI 或业务实现。
+
+## 测试框架
+
+项目使用以下测试工具：
+
+- **JUnit 5.13.4** - 测试框架
+- **AssertJ 3.27.3** - 流畅断言库
+- **Mockito 5.24.0** - Mock 框架（使用 inline mock maker）
+- **Lombok 1.18.48** - 代码简化库（使用 freefair-gradle 插件 9.8.0）
+
+测试任务配置为使用 JUnit Platform，并针对内存受限环境进行了优化（独立 JVM 进程 fork、串行 GC、最小堆限制）。
 
 ## 构建和运行
 

@@ -1,0 +1,56 @@
+# Git attributes for line ending normalization, language detection, and permission preservation
+
+# Preserve file permissions
+* text=auto eol=lf
+
+# Java files
+*.java text
+
+# Gradle files
+*.gradle text
+*.gradle.kts text
+
+# Properties files
+*.properties text
+
+# Markdown
+*.md text
+
+# YAML
+*.yml text
+*.yaml text
+
+# XML
+*.xml text
+
+# JSON
+*.json text
+
+# Shell scripts - preserve execute permission
+*.sh text eol=lf executable
+
+# Gradle wrapper for Unix/Linux/macOS - preserve execute permission
+gradlew text eol=lf executable
+
+# Gradle wrapper for Windows - keep as-is (binary mode to preserve DOS line endings)
+gradlew.bat binary
+
+# Git attributes
+.gitattributes text
+
+# Exclude binary files from line ending conversion
+*.jar binary
+*.zip binary
+*.class binary
+*.log binary
+
+# Language definitions for GitHub code search
+*.java language:java
+*.gradle language:Groovy
+*.md language:Markdown
+*.xml language:XML
+*.json language:JSON
+*.properties language:Properties
+*.yml language:YAML
+*.yaml language:YAML
+*.sh language:Shell

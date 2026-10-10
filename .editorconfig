@@ -1,0 +1,58 @@
+# -*- mode: conf; indent-width: 2; -*-
+root = true
+
+# All files
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# Java
+[*.java]
+indent_style = space
+indent_size = 4
+
+# Gradle
+[*.gradle]
+indent_style = space
+indent_size = 4
+
+[*.gradle.kts]
+indent_style = space
+indent_size = 4
+
+# Properties
+[*.properties]
+indent_style = space
+indent_size = 2
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# YAML
+[*.yml]
+[*.yaml]
+indent_style = space
+indent_size = 2
+
+# XML
+[*.xml]
+indent_style = space
+indent_size = 4
+
+# JSON
+[*.json]
+indent_style = space
+indent_size = 2
+
+# Shell
+[*.sh]
+indent_style = tab
+
+# Git
+[*.gitignore]
+[*.gitattributes]
+[*.gitconfig]
+# No indentation settings for git files
